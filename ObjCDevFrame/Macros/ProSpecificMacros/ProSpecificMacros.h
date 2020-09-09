@@ -9,5 +9,6 @@
 #ifndef ProSpecificMacros_h
 #define ProSpecificMacros_h
 
+#import "GlobalColorMacro.h"
 
 #endif /* ProSpecificMacros_h */

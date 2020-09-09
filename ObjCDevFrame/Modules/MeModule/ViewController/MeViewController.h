@@ -1,8 +1,8 @@
 //
-//  LoginViewController.h
+//  MeViewController.h
 //  ObjCDevFrame
 //
-//  Created by QiuZhaoHai on 2020/9/3.
+//  Created by QiuZhaoHai on 2020/9/8.
 //  Copyright © 2020 QiuZhaoHai. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LoginViewController : UIViewController
+@interface MeViewController : UIViewController
 
 @end
 

@@ -6,3 +6,7 @@
   Copyright © 2020 QiuZhaoHai. All rights reserved.
 */
 
+// Main Tabbar
+"消息" = "Message";
+"首页" = "Home";
+"我的" = "Me";

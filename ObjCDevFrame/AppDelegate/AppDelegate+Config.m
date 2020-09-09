@@ -15,7 +15,7 @@
 
 - (void)initAppConfig {
     // ProgressHUD 配置
-    [ProgressHUDManager configProgressHUDWithCornerRadius:5.f style:SVProgressHUDStyleDark animationType:SVProgressHUDAnimationTypeNative];
+    [ProgressHUDManager configProgressHUDWithCornerRadius:5.f styleType:SVProgressHUDStyleDark animationType:SVProgressHUDAnimationTypeNative];
     // 注册导航路由
     [self registerNavgationRouter];
     // 注册 Schema 路由
@@ -30,7 +30,6 @@
 - (void)registerNavgationRouter {
     // push
     // 路由 /com_devframe_navPush/:viewController
-
     [[JLRoutes globalRoutes] addRoute:NavPushRoute handler:^BOOL(NSDictionary<NSString *,id> * _Nonnull parameters) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self _handlerSceneWithPresent:NO parameters:parameters];

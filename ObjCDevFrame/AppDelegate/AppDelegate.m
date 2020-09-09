@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "AppDelegate+Config.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,9 @@
 
 // 程序运行
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [self initAppConfig];
+    
     return YES;
 }
 // 进入非活动状态
@@ -25,7 +28,6 @@
 // 进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application {
 }
-
 // 即将进入前台
 - (void)applicationWillEnterForeground:(UIApplication *)application {
 }
@@ -43,7 +45,6 @@
     // Use this method to select a configuration to create the new scene with.
     return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
 }
-
 
 - (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions  API_AVAILABLE(ios(13.0)) {
     // Called when the user discards a scene session.

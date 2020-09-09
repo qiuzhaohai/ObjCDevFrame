@@ -1,18 +1,18 @@
 //
-//  LoginViewController.m
+//  MessageViewController.m
 //  ObjCDevFrame
 //
-//  Created by QiuZhaoHai on 2020/9/3.
+//  Created by QiuZhaoHai on 2020/9/8.
 //  Copyright © 2020 QiuZhaoHai. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "MessageViewController.h"
 
-@interface LoginViewController ()
+@interface MessageViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation MessageViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

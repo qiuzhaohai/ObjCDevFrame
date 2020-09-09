@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		037DA38BB7FAAE75A212DD42 /* Pods_ObjCDevFrame_ObjCDevFrameUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CF8A41A6A1B8783D270FB39 /* Pods_ObjCDevFrame_ObjCDevFrameUITests.framework */; };
+		2F01F9952507C5A200685A5B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F01F9972507C5A200685A5B /* InfoPlist.strings */; };
+		2F01F9A22507D30100685A5B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F01F9A12507D30100685A5B /* HomeViewController.m */; };
+		2F01F9A62507D32000685A5B /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F01F9A52507D32000685A5B /* MessageViewController.m */; };
+		2F01F9AA2507D34100685A5B /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F01F9A92507D34100685A5B /* MeViewController.m */; };
 		2F110345242C66D500F41983 /* ProgressHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F110344242C66D500F41983 /* ProgressHUDManager.m */; };
 		2F11034F242C8EE100F41983 /* RegularMatchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F11034E242C8EE100F41983 /* RegularMatchManager.m */; };
 		2F82732F24BC33FC008DC96B /* AppDelegate+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE8CC4246882F200724B4E /* AppDelegate+Config.m */; };
 		2F82F15924374C7A00303376 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F82F15824374C7A00303376 /* LoginModel.m */; };
 		2F82F15C24374C8C00303376 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F82F15B24374C8C00303376 /* LoginViewModel.m */; };
-		2F82F16024374CBA00303376 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F82F15F24374CBA00303376 /* LoginViewController.m */; };
 		2F840FFF24B44E6A0097D01F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F840FFE24B44E6A0097D01F /* Main.storyboard */; };
 		2FA3E1A824248AEB00E30FEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3E1A724248AEB00E30FEF /* AppDelegate.m */; };
 		2FA3E1AB24248AEB00E30FEF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3E1AA24248AEB00E30FEF /* SceneDelegate.m */; };
@@ -23,6 +26,8 @@
 		2FA3E1C324248AED00E30FEF /* ObjCDevFrameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3E1C224248AED00E30FEF /* ObjCDevFrameTests.m */; };
 		2FA3E1CE24248AED00E30FEF /* ObjCDevFrameUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3E1CD24248AED00E30FEF /* ObjCDevFrameUITests.m */; };
 		2FA3E1E924248E1F00E30FEF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FA3E1EB24248E1F00E30FEF /* Localizable.strings */; };
+		2FA683F22500EF7900886AEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA683F12500EF7900886AEE /* LoginViewController.m */; };
+		2FA683F72500EFF900886AEE /* MainTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA683F62500EFF900886AEE /* MainTabBarControllerConfig.m */; };
 		2FFE8CC02468671700724B4E /* YYFPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA302B2463CB6A000CC9C0 /* YYFPSLabel.m */; };
 		2FFE8CC12468671D00724B4E /* YYWeakProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFA302A2463CB6A000CC9C0 /* YYWeakProxy.m */; };
 		2FFE8CCA2468931700724B4E /* RouterConsts.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE8CC92468931700724B4E /* RouterConsts.m */; };
@@ -48,6 +53,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F01F9902507C16300685A5B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		2F01F9922507C16400685A5B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2F01F9962507C5A200685A5B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		2F01F9982507C5A800685A5B /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		2F01F9992507C5AB00685A5B /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		2F01F9A02507D30100685A5B /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		2F01F9A12507D30100685A5B /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		2F01F9A42507D32000685A5B /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		2F01F9A52507D32000685A5B /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		2F01F9A82507D34100685A5B /* MeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MeViewController.h; sourceTree = "<group>"; };
+		2F01F9A92507D34100685A5B /* MeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeViewController.m; sourceTree = "<group>"; };
+		2F01F9AB2507D7CB00685A5B /* GlobalColorMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalColorMacro.h; sourceTree = "<group>"; };
 		2F110343242C66D400F41983 /* ProgressHUDManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProgressHUDManager.h; sourceTree = "<group>"; };
 		2F110344242C66D500F41983 /* ProgressHUDManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProgressHUDManager.m; sourceTree = "<group>"; };
 		2F110346242C810200F41983 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -63,10 +80,8 @@
 		2F82F15824374C7A00303376 /* LoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginModel.m; sourceTree = "<group>"; };
 		2F82F15A24374C8C00303376 /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
 		2F82F15B24374C8C00303376 /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
-		2F82F15E24374CBA00303376 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		2F82F15F24374CBA00303376 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		2F840FFE24B44E6A0097D01F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		2FA3E1A324248AEB00E30FEF /* ObjCDevFrame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObjCDevFrame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FA3E1A324248AEB00E30FEF /* Null.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Null.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA3E1A624248AEB00E30FEF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2FA3E1A724248AEB00E30FEF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		2FA3E1A924248AEB00E30FEF /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
@@ -83,6 +98,10 @@
 		2FA3E1CF24248AED00E30FEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FA3E1EA24248E1F00E30FEF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2FA3E1EC24248E2000E30FEF /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		2FA683F02500EF7900886AEE /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		2FA683F12500EF7900886AEE /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		2FA683F52500EFF900886AEE /* MainTabBarControllerConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTabBarControllerConfig.h; sourceTree = "<group>"; };
+		2FA683F62500EFF900886AEE /* MainTabBarControllerConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTabBarControllerConfig.m; sourceTree = "<group>"; };
 		2FF6FD262428AB1D001E6B64 /* ColorMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ColorMacro.h; sourceTree = "<group>"; };
 		2FF6FD272428ABB8001E6B64 /* FontMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FontMacro.h; sourceTree = "<group>"; };
 		2FF6FD282428B3D1001E6B64 /* SystemMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemMacro.h; sourceTree = "<group>"; };
@@ -134,11 +153,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F01F99C2507CE0200685A5B /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				2F01F99F2507D2D700685A5B /* ViewController */,
+			);
+			path = HomeModule;
+			sourceTree = "<group>";
+		};
+		2F01F99D2507CE0F00685A5B /* MessageModule */ = {
+			isa = PBXGroup;
+			children = (
+				2F01F9A32507D30A00685A5B /* ViewController */,
+			);
+			path = MessageModule;
+			sourceTree = "<group>";
+		};
+		2F01F99E2507CE1D00685A5B /* MeModule */ = {
+			isa = PBXGroup;
+			children = (
+				2F01F9A72507D33100685A5B /* ViewController */,
+			);
+			path = MeModule;
+			sourceTree = "<group>";
+		};
+		2F01F99F2507D2D700685A5B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2F01F9A02507D30100685A5B /* HomeViewController.h */,
+				2F01F9A12507D30100685A5B /* HomeViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2F01F9A32507D30A00685A5B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2F01F9A42507D32000685A5B /* MessageViewController.h */,
+				2F01F9A52507D32000685A5B /* MessageViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2F01F9A72507D33100685A5B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2F01F9A82507D34100685A5B /* MeViewController.h */,
+				2F01F9A92507D34100685A5B /* MeViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		2F110349242C842D00F41983 /* ProSpecificMacros */ = {
 			isa = PBXGroup;
 			children = (
 				2F11034A242C84AE00F41983 /* ProSpecificMacros.h */,
 				2F11034C242C881800F41983 /* APIMacro.h */,
+				2F01F9AB2507D7CB00685A5B /* GlobalColorMacro.h */,
 			);
 			path = ProSpecificMacros;
 			sourceTree = "<group>";
@@ -162,13 +233,6 @@
 			path = LoginModule;
 			sourceTree = "<group>";
 		};
-		2F82F14D24374A5E00303376 /* LogonModule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LogonModule;
-			sourceTree = "<group>";
-		};
 		2F82F14E24374A6100303376 /* GuideModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,13 +242,6 @@
 				2F82F15424374B0B00303376 /* ViewController */,
 			);
 			path = GuideModule;
-			sourceTree = "<group>";
-		};
-		2F82F14F24374A6300303376 /* LaunchModule */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = LaunchModule;
 			sourceTree = "<group>";
 		};
 		2F82F15024374ACA00303376 /* View */ = {
@@ -243,8 +300,8 @@
 		2F82F15D24374C9A00303376 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				2F82F15E24374CBA00303376 /* LoginViewController.h */,
-				2F82F15F24374CBA00303376 /* LoginViewController.m */,
+				2FA683F02500EF7900886AEE /* LoginViewController.h */,
+				2FA683F12500EF7900886AEE /* LoginViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -264,7 +321,7 @@
 		2FA3E1A424248AEB00E30FEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2FA3E1A324248AEB00E30FEF /* ObjCDevFrame.app */,
+				2FA3E1A324248AEB00E30FEF /* Null.app */,
 				2FA3E1BE24248AED00E30FEF /* ObjCDevFrameTests.xctest */,
 				2FA3E1C924248AED00E30FEF /* ObjCDevFrameUITests.xctest */,
 			);
@@ -310,6 +367,7 @@
 				2FA3E1B724248AED00E30FEF /* Info.plist */,
 				2FA3E1B824248AED00E30FEF /* main.m */,
 				2F110346242C810200F41983 /* PrefixHeader.pch */,
+				2F01F9972507C5A200685A5B /* InfoPlist.strings */,
 				2FA3E1EB24248E1F00E30FEF /* Localizable.strings */,
 				2FA3E1DE24248BAC00E30FEF /* Others */,
 			);
@@ -319,6 +377,8 @@
 		2FA3E1DC24248B7400E30FEF /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				2FA3E1A924248AEB00E30FEF /* SceneDelegate.h */,
+				2FA3E1AA24248AEB00E30FEF /* SceneDelegate.m */,
 				2FA3E1A624248AEB00E30FEF /* AppDelegate.h */,
 				2FA3E1A724248AEB00E30FEF /* AppDelegate.m */,
 				2FFE8CC32468806A00724B4E /* AppDelegate+Config.h */,
@@ -332,8 +392,6 @@
 			children = (
 				2F840FFE24B44E6A0097D01F /* Main.storyboard */,
 				2FA3E1B424248AED00E30FEF /* LaunchScreen.storyboard */,
-				2FA3E1A924248AEB00E30FEF /* SceneDelegate.h */,
-				2FA3E1AA24248AEB00E30FEF /* SceneDelegate.m */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -370,10 +428,11 @@
 		2FA3E1E224248C5300E30FEF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				2F82F14F24374A6300303376 /* LaunchModule */,
 				2F82F14E24374A6100303376 /* GuideModule */,
-				2F82F14D24374A5E00303376 /* LogonModule */,
 				2F82F14C24374A5B00303376 /* LoginModule */,
+				2F01F99D2507CE0F00685A5B /* MessageModule */,
+				2F01F99C2507CE0200685A5B /* HomeModule */,
+				2F01F99E2507CE1D00685A5B /* MeModule */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -407,6 +466,15 @@
 			children = (
 			);
 			path = NetWork;
+			sourceTree = "<group>";
+		};
+		2FA683F32500EFAE00886AEE /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				2FA683F52500EFF900886AEE /* MainTabBarControllerConfig.h */,
+				2FA683F62500EFF900886AEE /* MainTabBarControllerConfig.m */,
+			);
+			path = Tabbar;
 			sourceTree = "<group>";
 		};
 		2FF6FD2A2429DD90001E6B64 /* BaseMacros */ = {
@@ -461,6 +529,7 @@
 		2FFE8CC62468926C00724B4E /* Basic */ = {
 			isa = PBXGroup;
 			children = (
+				2FA683F32500EFAE00886AEE /* Tabbar */,
 				2FFE8CC72468928400724B4E /* Router */,
 				2FA3E1E624248C9F00E30FEF /* NetWork */,
 			);
@@ -518,7 +587,7 @@
 			);
 			name = ObjCDevFrame;
 			productName = ObjCDevFrame;
-			productReference = 2FA3E1A324248AEB00E30FEF /* ObjCDevFrame.app */;
+			productReference = 2FA3E1A324248AEB00E30FEF /* Null.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2FA3E1BD24248AED00E30FEF /* ObjCDevFrameTests */ = {
@@ -590,6 +659,7 @@
 				en,
 				Base,
 				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 2FA3E19A24248AEB00E30FEF;
 			productRefGroup = 2FA3E1A424248AEB00E30FEF /* Products */;
@@ -612,6 +682,7 @@
 				2FA3E1E924248E1F00E30FEF /* Localizable.strings in Resources */,
 				2FA3E1B324248AED00E30FEF /* Assets.xcassets in Resources */,
 				2F840FFF24B44E6A0097D01F /* Main.storyboard in Resources */,
+				2F01F9952507C5A200685A5B /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,15 +812,19 @@
 			files = (
 				2F82732F24BC33FC008DC96B /* AppDelegate+Config.m in Sources */,
 				2FFE8CC12468671D00724B4E /* YYWeakProxy.m in Sources */,
+				2FA683F72500EFF900886AEE /* MainTabBarControllerConfig.m in Sources */,
 				2FFE8CC02468671700724B4E /* YYFPSLabel.m in Sources */,
 				2F82F15C24374C8C00303376 /* LoginViewModel.m in Sources */,
+				2F01F9A22507D30100685A5B /* HomeViewController.m in Sources */,
+				2F01F9A62507D32000685A5B /* MessageViewController.m in Sources */,
 				2FA3E1A824248AEB00E30FEF /* AppDelegate.m in Sources */,
 				2FA3E1B924248AED00E30FEF /* main.m in Sources */,
 				2F110345242C66D500F41983 /* ProgressHUDManager.m in Sources */,
-				2F82F16024374CBA00303376 /* LoginViewController.m in Sources */,
 				2F11034F242C8EE100F41983 /* RegularMatchManager.m in Sources */,
+				2FA683F22500EF7900886AEE /* LoginViewController.m in Sources */,
 				2FA3E1AB24248AEB00E30FEF /* SceneDelegate.m in Sources */,
 				2FFE8CCA2468931700724B4E /* RouterConsts.m in Sources */,
+				2F01F9AA2507D34100685A5B /* MeViewController.m in Sources */,
 				2F82F15924374C7A00303376 /* LoginModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -786,10 +861,21 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2F01F9972507C5A200685A5B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2F01F9962507C5A200685A5B /* en */,
+				2F01F9982507C5A800685A5B /* zh-Hans */,
+				2F01F9992507C5AB00685A5B /* zh-Hant */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		2FA3E1B424248AED00E30FEF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2FA3E1B524248AED00E30FEF /* Base */,
+				2F01F9902507C16300685A5B /* zh-Hant */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -799,6 +885,7 @@
 			children = (
 				2FA3E1EA24248E1F00E30FEF /* en */,
 				2FA3E1EC24248E2000E30FEF /* zh-Hans */,
+				2F01F9922507C16400685A5B /* zh-Hant */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -939,7 +1026,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = QiuZhaoHai.ObjCDevFrame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Null;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -961,7 +1048,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = QiuZhaoHai.ObjCDevFrame;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Null;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

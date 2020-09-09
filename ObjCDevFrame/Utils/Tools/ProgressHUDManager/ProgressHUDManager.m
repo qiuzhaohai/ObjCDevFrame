@@ -11,9 +11,10 @@
 
 
 /// ProgressHUD 全局配置
-+ (void)configProgressHUDWithCornerRadius:(CGFloat)cornerRadius style:(SVProgressHUDStyle)style animationType:(SVProgressHUDAnimationType)animationType {
++ (void)configProgressHUDWithCornerRadius:(CGFloat)cornerRadius styleType:(SVProgressHUDStyle)styleType animationType:(SVProgressHUDAnimationType)animationType {
     [SVProgressHUD setCornerRadius:cornerRadius];
-    [SVProgressHUD setDefaultStyle:style];
+    // 设置样式类型
+    [SVProgressHUD setDefaultStyle:styleType];
     [SVProgressHUD setDefaultAnimationType:animationType];
 }
 

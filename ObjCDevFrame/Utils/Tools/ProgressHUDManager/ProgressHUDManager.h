@@ -14,7 +14,7 @@ typedef void(^__nullable completeAction)(void);
 
 @interface ProgressHUDManager : NSObject
 
-+ (void)configProgressHUDWithCornerRadius:(CGFloat)cornerRadius style:(SVProgressHUDStyle)style animationType:(SVProgressHUDAnimationType)animationType;
++ (void)configProgressHUDWithCornerRadius:(CGFloat)cornerRadius styleType:(SVProgressHUDStyle)styleType animationType:(SVProgressHUDAnimationType)animationType;
 + (void)closeProgressHUD;
 + (void)showLoadingHUDWithText:(NSString *)text;
 + (void)showTextHUD:(NSString *)text;

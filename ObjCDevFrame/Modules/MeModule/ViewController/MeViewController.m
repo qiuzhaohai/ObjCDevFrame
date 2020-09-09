@@ -1,18 +1,18 @@
 //
-//  LoginViewController.m
+//  MeViewController.m
 //  ObjCDevFrame
 //
-//  Created by QiuZhaoHai on 2020/9/3.
+//  Created by QiuZhaoHai on 2020/9/8.
 //  Copyright © 2020 QiuZhaoHai. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "MeViewController.h"
 
-@interface LoginViewController ()
+@interface MeViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation MeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

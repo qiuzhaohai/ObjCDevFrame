@@ -16,5 +16,6 @@
 #import "ProgressHUDManager.h"
 // JLRoutes 自定义常量
 #import "RouterConsts.h"
+#import "JLRoutes+GenerateURL.h"
 
 #endif /* LibsHeaderMacro_h */

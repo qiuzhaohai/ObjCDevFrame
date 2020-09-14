@@ -9,19 +9,18 @@
 #ifndef APIMacro_h
 #define APIMacro_h
 
-#define URL_HEADER "https://"
+#define URL_HEADER @"http://"
 // DEV环境
-#define URL_DOMAIN "api.uomg.com/"
-
+#define URL_DOMAIN URL_HEADER@"wcpublic.smec-cn.com:7777/simp/simp-uat/"
 // UAT环境
-//#define URL_DOMAIN ""
+//#define URL_DOMAIN @""
 // PRO环境
-//#define URL_DOMAIN ""
+//#define URL_DOMAIN @""
 // 虚拟目录
-#define URL_VIRTUAL_DIR "api/"
+#define APP_DOMAIN URL_DOMAIN@"eis/TEISService/"
 
-// baseUrl
-#define DOMAIN URL_HEADER + URL_DOMAIN + URL_VIRTUAL_DIR
+//API
+#define USER_LOGIN APP_DOMAIN@"userLogin"
 
 
 #endif /* APIMacro_h */

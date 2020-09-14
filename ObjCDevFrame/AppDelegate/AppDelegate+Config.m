@@ -11,8 +11,8 @@
 #import "RouterConsts.h"
 
 #pragma mark - 初始化 SVProgressHUD 配置
-@implementation AppDelegate(Config)
-
+@implementation AppDelegate (Config)
+// AppDelegate初始化配置
 - (void)initAppConfig {
     // ProgressHUD 配置
     [ProgressHUDManager configProgressHUDWithCornerRadius:5.f styleType:SVProgressHUDStyleDark animationType:SVProgressHUDAnimationTypeNative];
@@ -23,10 +23,11 @@
     
 }
 
-/******************************************************************************/
+@end
+
+@implementation AppDelegate (JLRoutes)
 
 #pragma mark - 普通的跳转路由注册
-
 - (void)registerNavgationRouter {
     // push
     // 路由 /com_devframe_navPush/:viewController

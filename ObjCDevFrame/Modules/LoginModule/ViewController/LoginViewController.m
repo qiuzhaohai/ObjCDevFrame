@@ -7,26 +7,48 @@
 //
 
 #import "LoginViewController.h"
+#import "LoginViewModel.h"
 
 @interface LoginViewController ()
+
+@property(nonatomic) LoginViewModel *loginViewModel;
 
 @end
 
 @implementation LoginViewController
 
+#pragma mark life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.view.backgroundColor = red_color;
+    // 网络请求
+//    NSMutableDictionary *val = [NSMutableDictionary dictionary];
+//    [val setValue:@"18650457578" forKey:@"userCode"];
+//    [val setValue:[MD5Manager md5Encrypt:@"123456"] forKey:@"password"];
+//    [val setValue:@"mpl" forKey:@"loginType"];
+//    [[self.loginViewModel.loginCommond execute:val] subscribeNext:^(id  _Nullable x) {
+//    } error:^(NSError * _Nullable error) {
+//
+//    } completed:^{
+//    }];
 }
-*/
+
+
+
+#pragma mark - setter/getter
+
+- (LoginViewModel *)loginViewModel {
+    if (!_loginViewModel) {
+        _loginViewModel = [[LoginViewModel alloc] init];
+    }
+    return _loginViewModel;
+}
 
 @end

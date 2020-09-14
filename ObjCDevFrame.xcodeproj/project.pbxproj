@@ -14,6 +14,13 @@
 		2F01F9AA2507D34100685A5B /* MeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F01F9A92507D34100685A5B /* MeViewController.m */; };
 		2F110345242C66D500F41983 /* ProgressHUDManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F110344242C66D500F41983 /* ProgressHUDManager.m */; };
 		2F11034F242C8EE100F41983 /* RegularMatchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F11034E242C8EE100F41983 /* RegularMatchManager.m */; };
+		2F286B63250D0E2D007B8FCB /* NetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F286B62250D0E2D007B8FCB /* NetWorkManager.m */; };
+		2F286B6A250D2065007B8FCB /* NetworkError.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F286B69250D2065007B8FCB /* NetworkError.m */; };
+		2F286B6D250D2ED3007B8FCB /* OPDataResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F286B6C250D2ED3007B8FCB /* OPDataResponse.m */; };
+		2F286B71250E1312007B8FCB /* MD5Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F286B70250E1312007B8FCB /* MD5Manager.m */; };
+		2F286B79250E70E4007B8FCB /* NSObject+YYModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F286B76250E70E4007B8FCB /* NSObject+YYModel.m */; };
+		2F286B7A250E70E4007B8FCB /* YYClassInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F286B77250E70E4007B8FCB /* YYClassInfo.m */; };
+		2F286B7D250F0F7F007B8FCB /* JLRoutes+GenerateURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F286B7C250F0F7F007B8FCB /* JLRoutes+GenerateURL.m */; };
 		2F82732F24BC33FC008DC96B /* AppDelegate+Config.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FFE8CC4246882F200724B4E /* AppDelegate+Config.m */; };
 		2F82F15924374C7A00303376 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F82F15824374C7A00303376 /* LoginModel.m */; };
 		2F82F15C24374C8C00303376 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F82F15B24374C8C00303376 /* LoginViewModel.m */; };
@@ -75,6 +82,22 @@
 		2F11034C242C881800F41983 /* APIMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIMacro.h; sourceTree = "<group>"; };
 		2F11034D242C8EE100F41983 /* RegularMatchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegularMatchManager.h; sourceTree = "<group>"; };
 		2F11034E242C8EE100F41983 /* RegularMatchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegularMatchManager.m; sourceTree = "<group>"; };
+		2F286AE52509DE63007B8FCB /* UserDefaultsKeyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserDefaultsKeyMacro.h; sourceTree = "<group>"; };
+		2F286B61250D0E2C007B8FCB /* NetWorkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkManager.h; sourceTree = "<group>"; };
+		2F286B62250D0E2D007B8FCB /* NetWorkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkManager.m; sourceTree = "<group>"; };
+		2F286B68250D2065007B8FCB /* NetworkError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkError.h; sourceTree = "<group>"; };
+		2F286B69250D2065007B8FCB /* NetworkError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkError.m; sourceTree = "<group>"; };
+		2F286B6B250D2ED3007B8FCB /* OPDataResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OPDataResponse.h; sourceTree = "<group>"; };
+		2F286B6C250D2ED3007B8FCB /* OPDataResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OPDataResponse.m; sourceTree = "<group>"; };
+		2F286B6F250E1312007B8FCB /* MD5Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MD5Manager.h; sourceTree = "<group>"; };
+		2F286B70250E1312007B8FCB /* MD5Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MD5Manager.m; sourceTree = "<group>"; };
+		2F286B74250E70E4007B8FCB /* YYClassInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYClassInfo.h; sourceTree = "<group>"; };
+		2F286B75250E70E4007B8FCB /* YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYModel.h; sourceTree = "<group>"; };
+		2F286B76250E70E4007B8FCB /* NSObject+YYModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+YYModel.m"; sourceTree = "<group>"; };
+		2F286B77250E70E4007B8FCB /* YYClassInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYClassInfo.m; sourceTree = "<group>"; };
+		2F286B78250E70E4007B8FCB /* NSObject+YYModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+YYModel.h"; sourceTree = "<group>"; };
+		2F286B7B250F0F7F007B8FCB /* JLRoutes+GenerateURL.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JLRoutes+GenerateURL.h"; sourceTree = "<group>"; };
+		2F286B7C250F0F7F007B8FCB /* JLRoutes+GenerateURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "JLRoutes+GenerateURL.m"; sourceTree = "<group>"; };
 		2F82733024BC36EC008DC96B /* LibsHeaderMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LibsHeaderMacro.h; sourceTree = "<group>"; };
 		2F82F15724374C7A00303376 /* LoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginModel.h; sourceTree = "<group>"; };
 		2F82F15824374C7A00303376 /* LoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginModel.m; sourceTree = "<group>"; };
@@ -210,8 +233,39 @@
 				2F11034A242C84AE00F41983 /* ProSpecificMacros.h */,
 				2F11034C242C881800F41983 /* APIMacro.h */,
 				2F01F9AB2507D7CB00685A5B /* GlobalColorMacro.h */,
+				2F286AE52509DE63007B8FCB /* UserDefaultsKeyMacro.h */,
 			);
 			path = ProSpecificMacros;
+			sourceTree = "<group>";
+		};
+		2F286B6E250E12DA007B8FCB /* MD5Manager */ = {
+			isa = PBXGroup;
+			children = (
+				2F286B6F250E1312007B8FCB /* MD5Manager.h */,
+				2F286B70250E1312007B8FCB /* MD5Manager.m */,
+			);
+			path = MD5Manager;
+			sourceTree = "<group>";
+		};
+		2F286B72250E70B0007B8FCB /* YYKit */ = {
+			isa = PBXGroup;
+			children = (
+				2F286B73250E70E4007B8FCB /* YYModel */,
+				2FFA30272463C9BD000CC9C0 /* YYFPSLabel */,
+			);
+			path = YYKit;
+			sourceTree = "<group>";
+		};
+		2F286B73250E70E4007B8FCB /* YYModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F286B75250E70E4007B8FCB /* YYModel.h */,
+				2F286B74250E70E4007B8FCB /* YYClassInfo.h */,
+				2F286B77250E70E4007B8FCB /* YYClassInfo.m */,
+				2F286B78250E70E4007B8FCB /* NSObject+YYModel.h */,
+				2F286B76250E70E4007B8FCB /* NSObject+YYModel.m */,
+			);
+			path = YYModel;
 			sourceTree = "<group>";
 		};
 		2F82733124BC37B8008DC96B /* LibsHeaderMacro */ = {
@@ -377,8 +431,6 @@
 		2FA3E1DC24248B7400E30FEF /* AppDelegate */ = {
 			isa = PBXGroup;
 			children = (
-				2FA3E1A924248AEB00E30FEF /* SceneDelegate.h */,
-				2FA3E1AA24248AEB00E30FEF /* SceneDelegate.m */,
 				2FA3E1A624248AEB00E30FEF /* AppDelegate.h */,
 				2FA3E1A724248AEB00E30FEF /* AppDelegate.m */,
 				2FFE8CC32468806A00724B4E /* AppDelegate+Config.h */,
@@ -390,6 +442,8 @@
 		2FA3E1DE24248BAC00E30FEF /* Others */ = {
 			isa = PBXGroup;
 			children = (
+				2FA3E1A924248AEB00E30FEF /* SceneDelegate.h */,
+				2FA3E1AA24248AEB00E30FEF /* SceneDelegate.m */,
 				2F840FFE24B44E6A0097D01F /* Main.storyboard */,
 				2FA3E1B424248AED00E30FEF /* LaunchScreen.storyboard */,
 			);
@@ -418,8 +472,8 @@
 			isa = PBXGroup;
 			children = (
 				2F110347242C82E600F41983 /* MacroHeaderFiles.h */,
-				2F82733124BC37B8008DC96B /* LibsHeaderMacro */,
 				2F110349242C842D00F41983 /* ProSpecificMacros */,
+				2F82733124BC37B8008DC96B /* LibsHeaderMacro */,
 				2FF6FD2A2429DD90001E6B64 /* BaseMacros */,
 			);
 			path = Macros;
@@ -454,7 +508,7 @@
 		2FA3E1E524248C9200E30FEF /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				2FFA30272463C9BD000CC9C0 /* YYFPSLabel */,
+				2F286B6E250E12DA007B8FCB /* MD5Manager */,
 				2FFA30262463C9A1000CC9C0 /* RegularMatchManager */,
 				2FFA30252463C98E000CC9C0 /* ProgressHUDManager */,
 			);
@@ -464,6 +518,12 @@
 		2FA3E1E624248C9F00E30FEF /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				2F286B61250D0E2C007B8FCB /* NetWorkManager.h */,
+				2F286B62250D0E2D007B8FCB /* NetWorkManager.m */,
+				2F286B68250D2065007B8FCB /* NetworkError.h */,
+				2F286B69250D2065007B8FCB /* NetworkError.m */,
+				2F286B6B250D2ED3007B8FCB /* OPDataResponse.h */,
+				2F286B6C250D2ED3007B8FCB /* OPDataResponse.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -522,6 +582,7 @@
 		2FFE8CC22468778500724B4E /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				2F286B72250E70B0007B8FCB /* YYKit */,
 			);
 			path = Vendor;
 			sourceTree = "<group>";
@@ -541,6 +602,8 @@
 			children = (
 				2FFE8CC82468931600724B4E /* RouterConsts.h */,
 				2FFE8CC92468931700724B4E /* RouterConsts.m */,
+				2F286B7B250F0F7F007B8FCB /* JLRoutes+GenerateURL.h */,
+				2F286B7C250F0F7F007B8FCB /* JLRoutes+GenerateURL.m */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -811,14 +874,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F82732F24BC33FC008DC96B /* AppDelegate+Config.m in Sources */,
+				2F286B6D250D2ED3007B8FCB /* OPDataResponse.m in Sources */,
+				2F286B63250D0E2D007B8FCB /* NetWorkManager.m in Sources */,
 				2FFE8CC12468671D00724B4E /* YYWeakProxy.m in Sources */,
+				2F286B6A250D2065007B8FCB /* NetworkError.m in Sources */,
 				2FA683F72500EFF900886AEE /* MainTabBarControllerConfig.m in Sources */,
 				2FFE8CC02468671700724B4E /* YYFPSLabel.m in Sources */,
 				2F82F15C24374C8C00303376 /* LoginViewModel.m in Sources */,
 				2F01F9A22507D30100685A5B /* HomeViewController.m in Sources */,
+				2F286B79250E70E4007B8FCB /* NSObject+YYModel.m in Sources */,
 				2F01F9A62507D32000685A5B /* MessageViewController.m in Sources */,
 				2FA3E1A824248AEB00E30FEF /* AppDelegate.m in Sources */,
+				2F286B7A250E70E4007B8FCB /* YYClassInfo.m in Sources */,
 				2FA3E1B924248AED00E30FEF /* main.m in Sources */,
+				2F286B71250E1312007B8FCB /* MD5Manager.m in Sources */,
 				2F110345242C66D500F41983 /* ProgressHUDManager.m in Sources */,
 				2F11034F242C8EE100F41983 /* RegularMatchManager.m in Sources */,
 				2FA683F22500EF7900886AEE /* LoginViewController.m in Sources */,
@@ -826,6 +895,7 @@
 				2FFE8CCA2468931700724B4E /* RouterConsts.m in Sources */,
 				2F01F9AA2507D34100685A5B /* MeViewController.m in Sources */,
 				2F82F15924374C7A00303376 /* LoginModel.m in Sources */,
+				2F286B7D250F0F7F007B8FCB /* JLRoutes+GenerateURL.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

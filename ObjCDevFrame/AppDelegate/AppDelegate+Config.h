@@ -17,4 +17,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+@interface AppDelegate (JLRoutes)
+
+- (void)registerNavgationRouter;
+- (void)registerSchemaRouter;
+
+@end
+
 NS_ASSUME_NONNULL_END

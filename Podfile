@@ -6,6 +6,7 @@ inhibit_all_warnings!
 target 'ObjCDevFrame' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
+  # Pods for ObjCDevFrame
   pod "Aspects", "~> 1.4"
   pod "JLRoutes","~> 2.1"
   pod "BGFMDB", "~> 2.0.13"
@@ -17,7 +18,6 @@ target 'ObjCDevFrame' do
   pod 'CYLTabBarController', '~> 1.24.2'
   pod "RTRootNavigationController", "~> 0.7.2"
   pod 'AFNetworking', '~> 4.0'
-  # Pods for ObjCDevFrame
 
   target 'ObjCDevFrameTests' do
     inherit! :search_paths

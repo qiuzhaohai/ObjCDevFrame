@@ -10,5 +10,7 @@
 #define ProSpecificMacros_h
 
 #import "GlobalColorMacro.h"
+#import "UserDefaultsKeyMacro.h"
+#import "APIMacro.h"
 
 #endif /* ProSpecificMacros_h */

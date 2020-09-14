@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "AppDelegate+Config.h"
+#import "RTRootNavigationController.h"
+#import "MainTabBarControllerConfig.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,9 +20,10 @@
 
 // 程序运行
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+    // 配置
     [self initAppConfig];
-    
+    // 显示页面
+    [self startJumpViewController];
     return YES;
 }
 // 进入非活动状态
@@ -38,19 +42,32 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
 }
 
-#pragma mark - UISceneSession lifecycle
+#pragma mark - method
 
-- (UISceneConfiguration *)application:(UIApplication *)application configurationForConnectingSceneSession:(UISceneSession *)connectingSceneSession options:(UISceneConnectionOptions *)options  API_AVAILABLE(ios(13.0)) API_AVAILABLE(ios(13.0)) API_AVAILABLE(ios(13.0)) {
-    // Called when a new scene session is being created.
-    // Use this method to select a configuration to create the new scene with.
-    return [[UISceneConfiguration alloc] initWithName:@"Default Configuration" sessionRole:connectingSceneSession.role];
+- (UIWindow *)window {
+    if (!_window) {
+        _window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    }
+    return _window;
 }
-
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions  API_AVAILABLE(ios(13.0)) {
-    // Called when the user discards a scene session.
-    // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-    // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+/**
+ * 启动App跳转页面
+ */
+- (void)startJumpViewController {
+    // 读取保存在userDefaults的账号
+//    if (![[NSUserDefaults standardUserDefaults] stringForKey:UDAccountKey]) {
+//        // 未登录，进入登录页
+//        LoginViewController *loginViewController  = [[LoginViewController alloc] init];
+//        [self.window setRootViewController:loginViewController];
+//        [self.window makeKeyAndVisible];
+//    } else {
+        // 已登录，进入首页
+        MainTabBarControllerConfig *tabbarConfig  = [[MainTabBarControllerConfig alloc] init];
+        CYLTabBarController *mainTabbarController = tabbarConfig.mainTabbarController;
+        [mainTabbarController setSelectedIndex:1];
+        [self.window setRootViewController:mainTabbarController];
+        [self.window makeKeyAndVisible];
+//    }
 }
-
 
 @end

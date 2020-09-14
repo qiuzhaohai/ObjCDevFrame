@@ -1,6 +1,7 @@
 #import "SceneDelegate.h"
 #import "RTRootNavigationController.h"
 #import "MainTabBarControllerConfig.h"
+#import "LoginViewController.h"
 
 @interface SceneDelegate ()
 
@@ -10,11 +11,8 @@
 
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions  API_AVAILABLE(ios(13.0)) API_AVAILABLE(ios(13.0)) API_AVAILABLE(ios(13.0)) {
-    
-    MainTabBarControllerConfig *tabbarConfig  = [[MainTabBarControllerConfig alloc] init];
-    CYLTabBarController *mainTabbarController = tabbarConfig.mainTabbarController;
-    [self.window setRootViewController:mainTabbarController];
-    
+    // 进入页面
+    [self startJumpViewController];
     // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
@@ -53,5 +51,22 @@
     // to restore the scene back to its current state.
 }
 
+#pragma mark - method
+/**
+ * 启动App跳转页面
+ */
+- (void)startJumpViewController {
+//    // 读取保存在userDefaults的账号
+//    if (![[NSUserDefaults standardUserDefaults] stringForKey:UDAccountKey]) {
+//        // 未登录，进入登录页
+//        LoginViewController *loginViewController  = [[LoginViewController alloc] init];
+//        [self.window setRootViewController:loginViewController];
+//    } else {
+        // 已登录，进入首页
+        MainTabBarControllerConfig *tabbarConfig  = [[MainTabBarControllerConfig alloc] init];
+        CYLTabBarController *mainTabbarController = tabbarConfig.mainTabbarController;
+        [self.window setRootViewController:mainTabbarController];
+//    }
+}
 
 @end

@@ -27,6 +27,7 @@
 		2F82F15924374C7A00303376 /* LoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F82F15824374C7A00303376 /* LoginModel.m */; };
 		2F82F15C24374C8C00303376 /* LoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F82F15B24374C8C00303376 /* LoginViewModel.m */; };
 		2F840FFF24B44E6A0097D01F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F840FFE24B44E6A0097D01F /* Main.storyboard */; };
+		2F9DAA8126394A1200332D71 /* HomeViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F9DAA8026394A1200332D71 /* HomeViewModel.m */; };
 		2FA3E1A824248AEB00E30FEF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3E1A724248AEB00E30FEF /* AppDelegate.m */; };
 		2FA3E1AB24248AEB00E30FEF /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3E1AA24248AEB00E30FEF /* SceneDelegate.m */; };
 		2FA3E1B324248AED00E30FEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FA3E1B224248AED00E30FEF /* Assets.xcassets */; };
@@ -110,6 +111,8 @@
 		2F82F15A24374C8C00303376 /* LoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewModel.h; sourceTree = "<group>"; };
 		2F82F15B24374C8C00303376 /* LoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewModel.m; sourceTree = "<group>"; };
 		2F840FFE24B44E6A0097D01F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		2F9DAA7F26394A1200332D71 /* HomeViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewModel.h; sourceTree = "<group>"; };
+		2F9DAA8026394A1200332D71 /* HomeViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewModel.m; sourceTree = "<group>"; };
 		2FA3E1A324248AEB00E30FEF /* Null.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Null.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FA3E1A624248AEB00E30FEF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2FA3E1A724248AEB00E30FEF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -185,6 +188,7 @@
 		2F01F99C2507CE0200685A5B /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				2F9DAA7E263949E800332D71 /* ViewModel */,
 				2F01F99F2507D2D700685A5B /* ViewController */,
 			);
 			path = HomeModule;
@@ -367,6 +371,15 @@
 				2FA683F12500EF7900886AEE /* LoginViewController.m */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		2F9DAA7E263949E800332D71 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2F9DAA7F26394A1200332D71 /* HomeViewModel.h */,
+				2F9DAA8026394A1200332D71 /* HomeViewModel.m */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		2FA3E19A24248AEB00E30FEF = {
@@ -898,6 +911,7 @@
 				2FA3E1AB24248AEB00E30FEF /* SceneDelegate.m in Sources */,
 				2FFE8CCA2468931700724B4E /* RouterConsts.m in Sources */,
 				2F01F9AA2507D34100685A5B /* MeViewController.m in Sources */,
+				2F9DAA8126394A1200332D71 /* HomeViewModel.m in Sources */,
 				2F82F15924374C7A00303376 /* LoginModel.m in Sources */,
 				2F286B7D250F0F7F007B8FCB /* JLRoutes+GenerateURL.m in Sources */,
 			);

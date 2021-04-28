@@ -29,7 +29,6 @@
 /// @param text 文本
 + (void)showLoadingHUDWithText:(NSString *)text {
     [ProgressHUDManager closeProgressHUD];
-    
     if (text) {
         [SVProgressHUD showWithStatus:text];
     } else {
@@ -41,6 +40,7 @@
 /// @param text 提示文本
 + (void)showTextHUD:(NSString *)text {
     [ProgressHUDManager closeProgressHUD];
+    
     [SVProgressHUD showImage:[UIImage imageNamed:@""] status:text];
     [SVProgressHUD dismissWithDelay:2];
 }

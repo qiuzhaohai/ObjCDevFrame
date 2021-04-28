@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic) LoginModel *loginModel;
 
 - (void)setAccount:(NSString *)value;
+- (void)routeJumpLogin:(NSString *)ClassName;
 - (void)setPassword:(NSString *)value;
 - (NSDictionary *)createRequestParams;
 @end

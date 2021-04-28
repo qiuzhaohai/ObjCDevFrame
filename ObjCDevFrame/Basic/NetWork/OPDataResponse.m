@@ -23,9 +23,9 @@
             self.data = response[@"data"];
         } else {
             if (responseType == OPDataResponseTypeDefault) {
-                self.data = [dataModelClass yy_modelWithDictionary:response[@"data"]];
+                self.data = [dataModelClass modelWithDictionary:response[@"data"]];
             } else if (responseType == OPDataResponseTypeList) {
-                self.data = [NSArray yy_modelArrayWithClass:dataModelClass json:response[@"data"]];
+                self.data = [NSArray modelArrayWithClass:dataModelClass json:response[@"data"]];
             } else if (responseType == OPDataResponseTypePage) {
 //                self.page = [response[@"page"] integerValue];
 //                self.size = [response[@"size"] integerValue];

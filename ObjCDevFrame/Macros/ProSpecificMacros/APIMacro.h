@@ -20,7 +20,11 @@
 #define APP_DOMAIN URL_DOMAIN@"eis/TEISService/"
 
 //API
-#define USER_LOGIN APP_DOMAIN@"userLogin"
+#define USER_LOGIN  APP_DOMAIN@"userLogin"
+// 获取消息
+#define GET_NEWS    APP_DOMAIN@"getMessage"
+// 获取动态
+#define GET_DYNAMIC APP_DOMAIN@"getNews"
 
 
 #endif /* APIMacro_h */

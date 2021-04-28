@@ -22,7 +22,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedNetWorkManager = [[super allocWithZone:NULL] init];
-        
+    
     });
     return sharedNetWorkManager;
 }
@@ -106,7 +106,7 @@ static NetWorkManager *sharedNetWorkManager = nil;
     // 设置token的值
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:UDTokenKey];
     if(token && !token) {
-       [[NetWorkManager sharedNetWorkManager].commonHeaders setObject:token forKey:@"token"];
+       [[NetWorkManager sharedNetWorkManager].commonHeaders setObject:token forKey:UDTokenKey];
     }
     // 设置请求序列
     AFHTTPRequestSerializer *httpRequestSerializer = [[AFJSONRequestSerializer alloc] init];
@@ -201,15 +201,18 @@ static NetWorkManager *sharedNetWorkManager = nil;
             [subscriber sendNext:opDataResponse];
             [subscriber sendCompleted];
         } else if (opDataResponse.code == CodeTypeTokenInvalid) { // token失效
+            // 保存在本地的token数据清空
+            [[NSUserDefaults standardUserDefaults] removeObjectForKey:UDTokenKey];
+            
             
         } else if (opDataResponse) { // 其他错误
             NSMutableDictionary *userInfo = [NSMutableDictionary dictionary];
             userInfo[operationInfoKey] = task;
-            BOOL isError = opDataResponse || opDataResponse.code != 200;
+            BOOL isError = opDataResponse;
             NSString * errorInfo = isError ? [responseObject objectForKey:@"msg"] : @"请求没有得到处理";
             userInfo[customErrorInfoKey] = errorInfo;
             userInfo[reponseErrorInfoKey] = opDataResponse;
-            NSError * error = [NSError errorWithDomain:nil code:customErrorCode userInfo:userInfo];
+            NSError * error = [NSError errorWithDomain:@"http://AFNetWorkUtils" code:customErrorCode userInfo:userInfo];
             [subscriber sendError:error];
         }
     }

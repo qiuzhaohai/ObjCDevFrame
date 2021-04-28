@@ -15,7 +15,7 @@ target 'ObjCDevFrame' do
   pod 'SVProgressHUD', "~> 2.2.5"
   pod 'ReactiveCocoa', '~> 10.2.0'
   pod 'SDWebImage', '~> 5.6.1'
-  pod 'CYLTabBarController', '~> 1.24.2'
+  pod 'CYLTabBarController', '~> 1.29.0'
   pod "RTRootNavigationController", "~> 0.7.2"
   pod 'AFNetworking', '~> 4.0'
 

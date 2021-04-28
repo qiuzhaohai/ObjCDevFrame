@@ -9,7 +9,6 @@
 #import "RegularMatchManager.h"
 
 @implementation RegularMatchManager
-
 + (BOOL)regularMatchValue:(NSString *)value RegexExpr:(NSString *)RegexExpr {
     return [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", RegexExpr] evaluateWithObject:value];
 }

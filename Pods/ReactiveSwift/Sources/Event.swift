@@ -205,151 +205,47 @@ extension Signal.Event: EventProtocol {
 //    This operator performs side effect upon interruption.
 
 extension Signal.Event {
-	internal typealias Transformation<U, E: Swift.Error> = (@escaping Signal<U, E>.Observer.Action, Lifetime) -> Signal<Value, Error>.Observer.Action
+	internal typealias Transformation<U, E: Swift.Error> = (ReactiveSwift.Observer<U, E>, Lifetime) -> ReactiveSwift.Observer<Value, Error>
 
 	internal static func filter(_ isIncluded: @escaping (Value) -> Bool) -> Transformation<Value, Error> {
-		return { action, _ in
-			return { event in
-				switch event {
-				case let .value(value):
-					if isIncluded(value) {
-						action(.value(value))
-					}
-
-				case .completed:
-					action(.completed)
-
-				case let .failed(error):
-					action(.failed(error))
-
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.Filter(downstream: downstream, predicate: isIncluded)
 		}
 	}
 
 	internal static func compactMap<U>(_ transform: @escaping (Value) -> U?) -> Transformation<U, Error> {
-		return { action, _ in
-			return { event in
-				switch event {
-				case let .value(value):
-					if let newValue = transform(value) {
-						action(.value(newValue))
-					}
-
-				case .completed:
-					action(.completed)
-
-				case let .failed(error):
-					action(.failed(error))
-
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.CompactMap(downstream: downstream, transform: transform)
 		}
 	}
 
 	internal static func map<U>(_ transform: @escaping (Value) -> U) -> Transformation<U, Error> {
-		return { action, _ in
-			return { event in
-				switch event {
-				case let .value(value):
-					action(.value(transform(value)))
-
-				case .completed:
-					action(.completed)
-
-				case let .failed(error):
-					action(.failed(error))
-
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.Map(downstream: downstream, transform: transform)
 		}
 	}
 
 	internal static func mapError<E>(_ transform: @escaping (Error) -> E) -> Transformation<Value, E> {
-		return { action, _ in
-			return { event in
-				switch event {
-				case let .value(value):
-					action(.value(value))
-
-				case .completed:
-					action(.completed)
-
-				case let .failed(error):
-					action(.failed(transform(error)))
-
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.MapError(downstream: downstream, transform: transform)
 		}
 	}
 
 	internal static var materialize: Transformation<Signal<Value, Error>.Event, Never> {
-		return { action, _ in
-			return { event in
-				action(.value(event))
-
-				switch event {
-				case .interrupted:
-					action(.interrupted)
-
-				case .completed, .failed:
-					action(.completed)
-
-				case .value:
-					break
-				}
-			}
+		return { downstream, _ in
+			Operators.Materialize(downstream: downstream)
 		}
 	}
 
 	internal static var materializeResults: Transformation<Result<Value, Error>, Never> {
-		return { action, _ in
-			return { event in
-				switch event {
-				case .value(let value):
-					action(.value(Result(success: value)))
-
-				case .failed(let error):
-					action(.value(Result(failure: error)))
-					action(.completed)
-
-				case .completed:
-					action(.completed)
-
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.MaterializeAsResult(downstream: downstream)
 		}
 	}
 
 	internal static func attemptMap<U>(_ transform: @escaping (Value) -> Result<U, Error>) -> Transformation<U, Error> {
-		return { action, _ in
-			return { event in
-				switch event {
-				case let .value(value):
-					switch transform(value) {
-					case let .success(value):
-						action(.value(value))
-					case let .failure(error):
-						action(.failed(error))
-					}
-				case let .failed(error):
-					action(.failed(error))
-				case .completed:
-					action(.completed)
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.AttemptMap(downstream: downstream, transform: transform)
 		}
 	}
 
@@ -377,150 +273,48 @@ extension Signal.Event where Error == Swift.Error {
 
 extension Signal.Event {
 	internal static func take(first count: Int) -> Transformation<Value, Error> {
-		assert(count >= 1)
-
-		return { action, _ in
-			var taken = 0
-
-			return { event in
-				guard let value = event.value else {
-					action(event)
-					return
-				}
-
-				if taken < count {
-					taken += 1
-					action(.value(value))
-				}
-
-				if taken == count {
-					action(.completed)
-				}
-			}
+		return { downstream, _ in
+			Operators.TakeFirst(downstream: downstream, count: count)
 		}
 	}
 
 	internal static func take(last count: Int) -> Transformation<Value, Error> {
-		return { action, _ in
-			var buffer: [Value] = []
-			buffer.reserveCapacity(count)
-
-			return { event in
-				switch event {
-				case let .value(value):
-					// To avoid exceeding the reserved capacity of the buffer,
-					// we remove then add. Remove elements until we have room to
-					// add one more.
-					while (buffer.count + 1) > count {
-						buffer.remove(at: 0)
-					}
-
-					buffer.append(value)
-				case let .failed(error):
-					action(.failed(error))
-				case .completed:
-					buffer.forEach { action(.value($0)) }
-					action(.completed)
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.TakeLast(downstream: downstream, count: count)
 		}
 	}
 
 	internal static func take(while shouldContinue: @escaping (Value) -> Bool) -> Transformation<Value, Error> {
-		return { action, _ in
-			return { event in
-				if let value = event.value, !shouldContinue(value) {
-					action(.completed)
-				} else {
-					action(event)
-				}
-			}
+		return { downstream, _ in
+			Operators.TakeWhile(downstream: downstream, shouldContinue: shouldContinue)
 		}
 	}
 
 	internal static func skip(first count: Int) -> Transformation<Value, Error> {
-		precondition(count > 0)
-
-		return { action, _ in
-			var skipped = 0
-
-			return { event in
-				if case .value = event, skipped < count {
-					skipped += 1
-				} else {
-					action(event)
-				}
-			}
+		return { downstream, _ in
+			Operators.SkipFirst(downstream: downstream, count: count)
 		}
 	}
 
 	internal static func skip(while shouldContinue: @escaping (Value) -> Bool) -> Transformation<Value, Error> {
-		return { action, _ in
-			var isSkipping = true
-
-			return { event in
-				switch event {
-				case let .value(value):
-					isSkipping = isSkipping && shouldContinue(value)
-					if !isSkipping {
-						fallthrough
-					}
-
-				case .failed, .completed, .interrupted:
-					action(event)
-				}
-			}
+		return { downstream, _ in
+			Operators.SkipWhile(downstream: downstream, shouldContinueToSkip: shouldContinue)
 		}
 	}
 }
 
 extension Signal.Event where Value: EventProtocol, Error == Never {
 	internal static var dematerialize: Transformation<Value.Value, Value.Error> {
-		return { action, _ in
-			return { event in
-				switch event {
-				case let .value(innerEvent):
-					action(innerEvent.event)
-
-				case .failed:
-					fatalError("Never is impossible to construct")
-
-				case .completed:
-					action(.completed)
-
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.Dematerialize(downstream: downstream)
 		}
 	}
 }
 
 extension Signal.Event where Value: ResultProtocol, Error == Never {
 	internal static var dematerializeResults: Transformation<Value.Success, Value.Failure> {
-		return { action, _ in
-			return { event in
-				let event = event.map { $0.result }
-
-				switch event {
-				case .value(.success(let value)):
-					action(.value(value))
-
-				case .value(.failure(let error)):
-					action(.failed(error))
-
-				case .failed:
-					fatalError("Never is impossible to construct")
-
-				case .completed:
-					action(.completed)
-
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.DematerializeResults(downstream: downstream)
 		}
 	}
 }
@@ -528,38 +322,6 @@ extension Signal.Event where Value: ResultProtocol, Error == Never {
 extension Signal.Event where Value: OptionalProtocol {
 	internal static var skipNil: Transformation<Value.Wrapped, Error> {
 		return compactMap { $0.optional }
-	}
-}
-
-/// A reference type which wraps an array to auxiliate the collection of values
-/// for `collect` operator.
-private final class CollectState<Value> {
-	var values: [Value] = []
-
-	/// Collects a new value.
-	func append(_ value: Value) {
-		values.append(value)
-	}
-
-	/// Check if there are any items remaining.
-	///
-	/// - note: This method also checks if there weren't collected any values
-	///         and, in that case, it means an empty array should be sent as the
-	///         result of collect.
-	var isEmpty: Bool {
-		/// We use capacity being zero to determine if we haven't collected any
-		/// value since we're keeping the capacity of the array to avoid
-		/// unnecessary and expensive allocations). This also guarantees
-		/// retro-compatibility around the original `collect()` operator.
-		return values.isEmpty && values.capacity > 0
-	}
-
-	/// Removes all values previously collected if any.
-	func flush() {
-		// Minor optimization to avoid consecutive allocations. Can
-		// be useful for sequences of regular or similar size and to
-		// track if any value was ever collected.
-		values.removeAll(keepingCapacity: true)
 	}
 }
 
@@ -574,54 +336,14 @@ extension Signal.Event {
 	}
 
 	internal static func collect(_ shouldEmit: @escaping (_ collectedValues: [Value]) -> Bool) -> Transformation<[Value], Error> {
-		return { action, _ in
-			let state = CollectState<Value>()
-
-			return { event in
-				switch event {
-				case let .value(value):
-					state.append(value)
-					if shouldEmit(state.values) {
-						action(.value(state.values))
-						state.flush()
-					}
-				case .completed:
-					if !state.isEmpty {
-						action(.value(state.values))
-					}
-					action(.completed)
-				case let .failed(error):
-					action(.failed(error))
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.Collect(downstream: downstream, shouldEmit: shouldEmit)
 		}
 	}
 
 	internal static func collect(_ shouldEmit: @escaping (_ collected: [Value], _ latest: Value) -> Bool) -> Transformation<[Value], Error> {
-		return { action, _ in
-			let state = CollectState<Value>()
-
-			return { event in
-				switch event {
-				case let .value(value):
-					if shouldEmit(state.values, value) {
-						action(.value(state.values))
-						state.flush()
-					}
-					state.append(value)
-				case .completed:
-					if !state.isEmpty {
-						action(.value(state.values))
-					}
-					action(.completed)
-				case let .failed(error):
-					action(.failed(error))
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.Collect(downstream: downstream, shouldEmit: shouldEmit)
 		}
 	}
 
@@ -630,105 +352,56 @@ extension Signal.Event {
 	/// `nil` literal would be materialized as `Optional<Value>.none` instead of `Value`,
 	/// thus changing the semantic.
 	internal static func combinePrevious(initial: Value?) -> Transformation<(Value, Value), Error> {
-		return { action, _ in
-			var previous = initial
-
-			return { event in
-				switch event {
-				case let .value(value):
-					if let previous = previous {
-						action(.value((previous, value)))
-					}
-					previous = value
-				case .completed:
-					action(.completed)
-				case let .failed(error):
-					action(.failed(error))
-				case .interrupted:
-					action(.interrupted)
-				}
-			}
+		return { downstream, _ in
+			Operators.CombinePrevious(downstream: downstream, initial: initial)
 		}
 	}
 
 	internal static func skipRepeats(_ isEquivalent: @escaping (Value, Value) -> Bool) -> Transformation<Value, Error> {
-		return { action, _ in
-			var previous: Value?
-
-			return { event in
-				switch event {
-				case let .value(value):
-					if let previous = previous, isEquivalent(previous, value) {
-						return
-					}
-					previous = value
-					fallthrough
-				case .completed, .interrupted, .failed:
-					action(event)
-				}
-			}
+		return { downstream, _ in
+			Operators.SkipRepeats(downstream: downstream, isEquivalent: isEquivalent)
 		}
 	}
 
 	internal static func uniqueValues<Identity: Hashable>(_ transform: @escaping (Value) -> Identity) -> Transformation<Value, Error> {
-		return { action, _ in
-			var seenValues: Set<Identity> = []
-
-			return { event in
-				switch event {
-				case let .value(value):
-					let identity = transform(value)
-					let (inserted, _) = seenValues.insert(identity)
-					if inserted {
-						fallthrough
-					}
-
-				case .failed, .completed, .interrupted:
-					action(event)
-				}
-			}
+		return { downstream, _ in
+			Operators.UniqueValues(downstream: downstream, extract: transform)
 		}
 	}
 
-	internal static func scan<U>(into initialResult: U, _ nextPartialResult: @escaping (inout U, Value) -> Void) -> Transformation<U, Error> {
-		return { action, _ in
-			var accumulator = initialResult
-
-			return { event in
-				action(event.map { value in
-					nextPartialResult(&accumulator, value)
-					return accumulator
-				})
-			}
+	internal static func reduce<U>(into initialResult: U, _ nextPartialResult: @escaping (inout U, Value) -> Void) -> Transformation<U, Error> {
+		return { downstream, _ in
+			Operators.Reduce(downstream: downstream, initial: initialResult, nextPartialResult: nextPartialResult)
 		}
+	}
+
+	internal static func reduce<U>(_ initialResult: U, _ nextPartialResult: @escaping (U, Value) -> U) -> Transformation<U, Error> {
+		return reduce(into: initialResult) { $0 = nextPartialResult($0, $1) }
+	}
+
+	internal static func scan<U>(into initialResult: U, _ nextPartialResult: @escaping (inout U, Value) -> Void) -> Transformation<U, Error> {
+		return self.scanMap(into: initialResult, { result, value -> U in
+			nextPartialResult(&result, value)
+			return result
+		})
 	}
 
 	internal static func scan<U>(_ initialResult: U, _ nextPartialResult: @escaping (U, Value) -> U) -> Transformation<U, Error> {
 		return scan(into: initialResult) { $0 = nextPartialResult($0, $1) }
 	}
 
-	internal static func reduce<U>(into initialResult: U, _ nextPartialResult: @escaping (inout U, Value) -> Void) -> Transformation<U, Error> {
-		return { action, _ in
-			var accumulator = initialResult
-
-			return { event in
-				switch event {
-				case let .value(value):
-					nextPartialResult(&accumulator, value)
-				case .completed:
-					action(.value(accumulator))
-					action(.completed)
-				case .interrupted:
-					action(.interrupted)
-				case let .failed(error):
-					action(.failed(error))
-				}
-			}
+	internal static func scanMap<State, U>(into initialState: State, _ next: @escaping (inout State, Value) -> U) -> Transformation<U, Error> {
+		return { downstream, _ in
+			Operators.ScanMap(downstream: downstream, initial: initialState, next: next)
 		}
 	}
 
-	internal static func reduce<U>(_ initialResult: U, _ nextPartialResult: @escaping (U, Value) -> U) -> Transformation<U, Error> {
-		return reduce(into: initialResult) { $0 = nextPartialResult($0, $1) }
+	internal static func scanMap<State, U>(_ initialState: State, _ next: @escaping (State, Value) -> (State, U)) -> Transformation<U, Error> {
+		return scanMap(into: initialState) { state, value in
+			let new = next(state, value)
+			state = new.0
+			return new.1
+		}
 	}
 
 	internal static func observe(on scheduler: Scheduler) -> Transformation<Value, Error> {
@@ -739,7 +412,7 @@ extension Signal.Event {
 				}
 			}
 
-			return { event in
+			return Signal.Observer { event in
 				scheduler.schedule {
 					if !lifetime.hasEnded {
 						action(event)
@@ -764,7 +437,7 @@ extension Signal.Event {
 				}
 			}
 
-			return { event in
+			return Signal.Observer { event in
 				switch event {
 				case let .value(value):
 					// Schedule only when there is no prior outstanding value.
@@ -806,7 +479,7 @@ extension Signal.Event {
 				}
 			}
 
-			return { event in
+			return Signal.Observer { event in
 				switch event {
 				case .failed, .interrupted:
 					scheduler.schedule {
@@ -837,7 +510,7 @@ extension Signal.Event {
 				scheduler.schedule { action(.interrupted) }
 			}
 
-			return { event in
+			return Signal.Observer { event in
 				guard let value = event.value else {
 					schedulerDisposable.inner = scheduler.schedule {
 						action(event)
@@ -879,7 +552,7 @@ extension Signal.Event {
 				scheduler.schedule { action(.interrupted) }
 			}
 
-			return { event in
+			return Signal.Observer { event in
 				switch event {
 				case let .value(value):
 					state.modify { state in
@@ -938,7 +611,7 @@ extension Signal.Event {
 				scheduler.schedule { action(.interrupted) }
 			}
 
-			return { event in
+			return Signal.Observer { event in
 				switch event {
 				case let .value(value):
 					state.modify { $0.values.append(value) }
@@ -994,7 +667,7 @@ private struct ThrottleState<Value> {
 extension Signal.Event where Error == Never {
 	internal static func promoteError<F>(_: F.Type) -> Transformation<Value, F> {
 		return { action, _ in
-			return { event in
+			return Signal.Observer { event in
 				switch event {
 				case let .value(value):
 					action(.value(value))
@@ -1013,7 +686,7 @@ extension Signal.Event where Error == Never {
 extension Signal.Event where Value == Never {
 	internal static func promoteValue<U>(_: U.Type) -> Transformation<U, Error> {
 		return { action, _ in
-			return { event in
+			return Signal.Observer { event in
 				action(event.promoteValue())
 			}
 		}

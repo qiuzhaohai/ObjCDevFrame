@@ -35,6 +35,7 @@
     if (!_mainTabbarController) {
         
         _mainTabbarController = [CYLTabBarController tabBarControllerWithViewControllers:[self getViewControllerItems] tabBarItemsAttributes:[self getTabBarItemsAttributes]];
+        _mainTabbarController.cyl_tabBarController.tabBar;
     }
     return _mainTabbarController;
 }
@@ -114,7 +115,6 @@
     }
     
 //    [[UITabBar appearance] setBackgroundImage:[[UIImage alloc] init]];
-//    [[UITabBar appearance] setBackgroundColor:[UIColor whiteColor]];
 }
 
 

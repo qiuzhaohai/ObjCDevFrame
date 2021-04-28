@@ -24,9 +24,6 @@
     // 显示页面
     [self startJumpViewController];
 
-//    [SmecEleCallQRCode bindAccount:@"18650457578" callback:^(SECCallbackResult *res) {
-//
-//    }];
     return YES;
 }
 // 进入非活动状态

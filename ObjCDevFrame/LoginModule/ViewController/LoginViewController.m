@@ -62,10 +62,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"SetStatusBarStyle" object:nil];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"SetStatusBarStyle" object:self userInfo:@{@"color":@"black"}];
-}
-
 #pragma mark - method
 
 - (void)loginToAppMainPage {

@@ -13,6 +13,14 @@
 
 @implementation LoginViewModel
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
 #pragma mark - setting/getting
 // 登录网络请求
 - (RACCommand *)loginCommond {
@@ -58,5 +66,6 @@
      [params setValue:self.loginModel.loginType forKey:@"loginType"];
     return params;
 }
+
 
 @end

@@ -11,13 +11,13 @@
 
 #define URL_HEADER @"http://"
 // DEV环境
-#define URL_DOMAIN URL_HEADER@"wcpublic.smec-cn.com:7777/simp/simp-uat/"
+#define URL_DOMAIN URL_HEADER@"192.168.1:7777/simp/uat/"
 // UAT环境
 //#define URL_DOMAIN @""
 // PRO环境
 //#define URL_DOMAIN @""
 // 虚拟目录
-#define APP_DOMAIN URL_DOMAIN@"eis/TEISService/"
+#define APP_DOMAIN URL_DOMAIN@"server/"
 
 //API
 #define USER_LOGIN  APP_DOMAIN@"userLogin"

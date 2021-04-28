@@ -9,11 +9,11 @@
 #import "HomeViewController.h"
 #import "HomeViewController.h"
 #import "MD5Manager.h"
-
 #import "LoginViewController.h"
+#import "HomeViewModel.h"
 
 @interface HomeViewController ()
-
+@property(nonatomic, strong) HomeViewModel *homeViewModel;
 
 @end
 
@@ -26,11 +26,19 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-//    // 路由跳转
-//    NSString *router = [JLRoutes generateURLWithPattern:NavPushRoute parameters:@[NSStringFromClass(LoginViewController.class)]];
-//    [[RACScheduler mainThreadScheduler] schedule:^{
-//        [JLRoutes routeURL:JLRGenRouteURL(DefaultRouteSchema, router)];
-//    }];
+    
 }
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+    
+}
+
+- (HomeViewModel *)homeViewModel {
+    if (_homeViewModel) return _homeViewModel;
+    _homeViewModel = [[HomeViewModel alloc] init];
+    return _homeViewModel;
+}
+
 
 @end
